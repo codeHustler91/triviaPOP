@@ -14,8 +14,8 @@ ActiveRecord::Schema.define(version: 2019_06_19_035836) do
 
   create_table "metadatas", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "questions_id"
-    t.index ["questions_id"], name: "index_metadatas_on_questions_id"
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_metadatas_on_question_id"
     t.index ["user_id"], name: "index_metadatas_on_user_id"
   end
 
