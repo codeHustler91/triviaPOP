@@ -8,4 +8,3 @@ ActiveRecord::Base.establish_connection(
     database: "db/trivia.db"
 )
 
-binding.pry
