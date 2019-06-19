@@ -1,3 +1,7 @@
+# Metadata.destroy_all
+# User.destroy_all
+# Question.destroy_all
+
 api_response = RestClient.get("https://opentdb.com/api.php?amount=10&category=9&difficulty=medium")
 parsed_api = JSON.parse(api_response)
 
