@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_035836) do
+ActiveRecord::Schema.define(version: 2019_06_20_004012) do
 
-  create_table "metadatas", force: :cascade do |t|
+  create_table "metadata", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
-    t.index ["question_id"], name: "index_metadatas_on_question_id"
-    t.index ["user_id"], name: "index_metadatas_on_user_id"
+    t.index ["question_id"], name: "index_metadata_on_question_id"
+    t.index ["user_id"], name: "index_metadata_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|

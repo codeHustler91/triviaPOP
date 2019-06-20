@@ -16,8 +16,7 @@ end
 def prompt_question(user)
     random_question = Question.all.sample
     binding.pry
-    Metadatas.create(user: user, question: random_question)
-    binding.pry
+    Metadata.create(user: user, question: random_question)
     question = Question.find(@random_id).question
     puts "#{@question}"
     get_user_answer(user, answer)

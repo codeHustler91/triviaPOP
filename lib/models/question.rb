@@ -1,4 +1,4 @@
 class Question < ActiveRecord::Base
-    has_many :Metadatas
-    has_many :Users, through: :Metadatas
+    has_many :metadata
+    has_many :users, through: :metadata
 end

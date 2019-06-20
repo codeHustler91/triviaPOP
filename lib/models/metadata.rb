@@ -1,4 +1,4 @@
 class Metadata < ActiveRecord::Base
-    belongs_to :Questions
-    belongs_to :Users
+    belongs_to :question
+    belongs_to :user
 end
