@@ -11,14 +11,13 @@ end
 def new_user
     puts "Please enter your desired username"
     user_response = gets.chomp
-    User.create(name: "#{user_response}", high_score: 0)
-    binding.pry
-    main_menu(user_response)
+    profile = User.create(name: "#{user_response}", high_score: 0)
+    main_menu(profile)
 end 
 
 def find_user
     puts "Please enter your username"
     user_response = gets.chomp
-    @profile = User.find_by name: "#{user_response}"
-    main_menu(user_response)
+    profile = User.find_by name: "#{user_response}"
+    main_menu(profile)
 end
