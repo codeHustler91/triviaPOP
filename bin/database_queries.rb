@@ -13,4 +13,16 @@
 # question: "Whose greyscale face is on the kappa emoticon on Twitch?",
 # correct_answer: "Josh DeSeno",
 # incorrect_answers: "[\"Justin DeSeno\", \"John DeSeno\", \"Jimmy DeSeno\"]">,
-# Metadata.create(user: , question: )
+
+def save_right_answer(meta_instance)
+    meta_instance.update(right_or_wrong: "right")
+end
+
+def save_wrong_answer(meta_instance)
+    meta_instance.update(right_or_wrong: "wrong")
+end
+
+def does_user_exist?(user_response)
+    User.find_by name: "#{user_response}"
+    #returns nil if no user found
+end

@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_004012) do
+ActiveRecord::Schema.define(version: 2019_06_20_192556) do
 
   create_table "metadata", force: :cascade do |t|
     t.integer "user_id"
     t.integer "question_id"
+    t.string "right_or_wrong"
     t.index ["question_id"], name: "index_metadata_on_question_id"
     t.index ["user_id"], name: "index_metadata_on_user_id"
   end
