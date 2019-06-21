@@ -11,24 +11,49 @@ def main_menu(user)
         puts `clear`
         puts "Awww Okay :(  Maybe Next Time"
     end
+    #add method to look up stats on user
+
+    #add method to keep track of score
+
+    #add method to save high score
+
+    #add method to read high score
 end
 
 def prompt_question(user)
     random_question = Question.all.sample
-    Metadata.create(user: user, question: random_question)
+    meta = Metadata.create(user: user, question: random_question, right_or_wrong: "not answered yet")
     puts "#{random_question.question}"
-    get_user_answer(user, random_question)
+    get_user_answer(user, random_question, meta)
 end
 
-def get_user_answer(user, random_question)
-    give_answer_choices(random_question)
-    answer = random_question.correct_answer
-    puts "Enter the number corresponding to the correct answer"
-    user_answer = gets.chomp
-    if user_answer == @shuffled_hash[user_answer]
-        puts "good job"
-    else puts "wrong answer dumbass"
+@@counter = 0
+
+def get_user_answer(user, random_question, meta)
+    while @@counter < 5
+        give_answer_choices(random_question)
+        answer = random_question.correct_answer
+        puts "Enter the number corresponding to the correct answer"
+        user_answer = gets.chomp
+        if @shuffled_hash[user_answer.to_i] == answer
+            puts "good job"
+            @@counter += 1
+            save_right_answer(meta)
+            prompt_question(user) unless @@counter > 4
+        elsif @shuffled_hash[user_answer.to_i] != answer
+            puts "wrong answer dumbass"
+            puts "The correct answer is #{answer}"
+            @@counter += 1
+            save_wrong_answer(meta)
+            prompt_question(user) unless @@counter > 4
+        elsif "q" == user_answer
+            quits
+        else
+            puts "what happened?"
+            quits
+        end
     end
+    end_of_round(user)
 end
 
 def give_answer_choices(random_question)
@@ -48,7 +73,7 @@ def shuffle_and_format(wrong_right_string)
     counter = 1
     shuffled.map do |answer|
         puts "#{counter} #{answer}"
-        @shuffled_hash[answer] = counter
+        @shuffled_hash[counter] = answer
         counter += 1
     end
     #add method to replace funky '  ex. Wendy&#039;s ==> Wendy's
