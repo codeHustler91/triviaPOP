@@ -27,17 +27,26 @@ def does_user_exist?(user_response)
     #returns nil if no user found
 end
 
-def round_score(user)
-    score_array = Metadata.last(10).map do |meta|
+def round_score
+    Metadata.last(10).map do |meta|
         difficulty = meta.question.difficulty
-        case difficulty
-        when "easy"
-            1
-        when "medium"
-            3
-        when "hard"
-            5
+        if meta.right_or_wrong == "right"
+            case difficulty
+            when "easy"
+                1
+            when "medium"
+                3
+            when "hard"
+                5
+            else 0
+            end
+        elsif meta.right_or_wrong == "wrong"
+            0
         else 0
         end
-    end
+    end.reduce(:+)
+end
+
+def update_high_score
+
 end
