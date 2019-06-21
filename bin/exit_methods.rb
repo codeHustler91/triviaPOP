@@ -15,6 +15,6 @@ def end_of_round(user)
 end
 
 def quits
-    puts "goodbye"
+    puts "goodbye forever"
     exit!
 end

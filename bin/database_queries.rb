@@ -17,11 +17,11 @@ def round_score
         if meta.right_or_wrong == "right"
             case difficulty
             when "easy"
-                1
-            when "medium"
                 3
-            when "hard"
+            when "medium"
                 5
+            when "hard"
+                8
             else 0
             end
         elsif meta.right_or_wrong == "wrong"
