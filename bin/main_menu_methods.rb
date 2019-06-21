@@ -1,6 +1,6 @@
 
 def main_menu(user)
-    puts "TriviaPOP Time! Lets Play!? y/n"
+    puts "TriviaPOP Time!\nEasy questions are worth 1 point\nMedium questions are worth 3 points\nHard questions are worth 5 points\nLets Play!? y/n"
         @user_response = gets.chomp
     if @user_response == "y"
         puts "Yay, lets get started!"
@@ -30,7 +30,7 @@ end
 @@counter = 0
 
 def get_user_answer(user, random_question, meta)
-    while @@counter < 5
+    while @@counter < 10
         give_answer_choices(random_question)
         answer = random_question.correct_answer
         puts "Enter the number corresponding to the correct answer"
@@ -39,13 +39,13 @@ def get_user_answer(user, random_question, meta)
             puts "good job"
             @@counter += 1
             save_right_answer(meta)
-            prompt_question(user) unless @@counter > 4
+            prompt_question(user) unless @@counter > 9
         elsif @shuffled_hash[user_answer.to_i] != answer
             puts "wrong answer dumbass"
             puts "The correct answer is #{answer}"
             @@counter += 1
             save_wrong_answer(meta)
-            prompt_question(user) unless @@counter > 4
+            prompt_question(user) unless @@counter > 9
         elsif "q" == user_answer
             quits
         else

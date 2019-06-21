@@ -4,7 +4,7 @@ User.destroy_all
 Question.destroy_all
 
 #medium general knowledge
-medium_general_questions = RestClient.get("https://opentdb.com/api.php?amount=50&category=9&difficulty=medium&type=multiple")
+medium_general_questions = RestClient.get("https://opentdb.com/api.php?amount=50&category=20&difficulty=medium&type=multiple")
 parsed_med_gen = JSON.parse(medium_general_questions)
 
 parsed_med_gen["results"].each do |question|
@@ -12,7 +12,7 @@ parsed_med_gen["results"].each do |question|
 end
 
 #hard general knowledge
-hard_general_questions = RestClient.get("https://opentdb.com/api.php?amount=50&category=9&difficulty=hard&type=multiple")
+hard_general_questions = RestClient.get("https://opentdb.com/api.php?amount=50&category=20&difficulty=hard&type=multiple")
 parsed_hard_gen = JSON.parse(hard_general_questions)
 
 parsed_hard_gen["results"].each do |question|
@@ -20,7 +20,7 @@ parsed_hard_gen["results"].each do |question|
 end
 
 #easy general knowledge
-easy_general_questions = RestClient.get("https://opentdb.com/api.php?amount=50&category=9&difficulty=easy&type=multiple")
+easy_general_questions = RestClient.get("https://opentdb.com/api.php?amount=50&category=20&difficulty=easy&type=multiple")
 parsed_easy_gen = JSON.parse(easy_general_questions)
 
 parsed_easy_gen["results"].each do |question|
