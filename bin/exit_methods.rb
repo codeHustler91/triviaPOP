@@ -1,7 +1,7 @@
 def end_of_round(user)
     puts "End of the round, #{user.name}"
     puts "you scored #{round_score} points!"
-    #you got 5/10 correct method
+    update_high_score
     puts "would you like to play again? y/n"
     user_response = gets.chomp
     if user_response == "y"
