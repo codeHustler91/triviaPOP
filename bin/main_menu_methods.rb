@@ -1,6 +1,6 @@
 
 def main_menu(user)
-    puts "TriviaPOP Time!\nEasy questions are worth 1 point\nMedium questions are worth 3 points\nHard questions are worth 5 points\nLets Play!? y/n"
+    puts "TriviaPOP Time!\nEasy questions are worth 3 point\nMedium questions are worth 5 points\nLets Play!? y/n"
         @user_response = gets.chomp
     if @user_response == "y"
         puts "Yay, lets get started!"
@@ -10,14 +10,9 @@ def main_menu(user)
     else @user_response == "n" 
         puts `clear`
         puts "Awww Okay :(  Maybe Next Time"
+        quits
     end
     #add method to look up stats on user
-
-    #add method to keep track of score
-
-    #add method to save high score
-
-    #add method to read high score
 end
 
 def prompt_question(user)
@@ -41,7 +36,7 @@ def get_user_answer(user, random_question, meta)
             save_right_answer(meta)
             prompt_question(user) unless @@counter > 9
         elsif @shuffled_hash[user_answer.to_i] != answer
-            puts "wrong answer dumbass"
+            puts "wrong answer, donkey brain"
             puts "The correct answer is #{answer}"
             @@counter += 1
             save_wrong_answer(meta)

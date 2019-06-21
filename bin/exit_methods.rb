@@ -1,6 +1,7 @@
 def end_of_round(user)
     puts "End of the round, #{user.name}"
-    #you got 5/10 correct method
+    puts "you scored #{round_score} points!"
+    update_high_score
     puts "would you like to play again? y/n"
     user_response = gets.chomp
     if user_response == "y"
@@ -14,6 +15,6 @@ def end_of_round(user)
 end
 
 def quits
-    puts "goodbye"
+    puts "goodbye forever"
     exit!
 end
