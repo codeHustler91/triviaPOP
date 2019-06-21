@@ -41,6 +41,7 @@ def prompt_question(user)
         pic_question_10
     end
     puts "#{random_question.question}".bold
+    puts "\n"
     get_user_answer(user, random_question, meta)
 end
 
@@ -50,6 +51,7 @@ def get_user_answer(user, random_question, meta)
     while @@counter < 10
         give_answer_choices(random_question)
         answer = random_question.correct_answer
+        puts "\n"
         puts "Enter the number corresponding to the correct answer".bold
         user_answer = gets.chomp
         if @shuffled_hash[user_answer.to_i] == answer

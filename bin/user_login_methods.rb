@@ -1,6 +1,6 @@
 def login
     pic_trivia
-    puts "          " # for spacing
+    # puts "\n"
     puts "Hello, Welcome to TriviaPOP\n1 New user?\n2 Existing user?\n(please enter number, or 'quit' to exit game)".bold
     user_response = gets.chomp
     if user_response == "1"
@@ -20,6 +20,7 @@ def new_user
     user_response = gets.chomp
     if does_user_exist?(user_response) == nil
         profile = User.create(name: "#{user_response}", high_score: 0)
+        puts "\n"
         puts "Welcome #{user_response}".bold
         main_menu(profile)
     else 
@@ -36,7 +37,8 @@ def find_user
         login
     else 
         profile = User.find_by name: "#{user_response}"
-        puts "Welcome #{user_response},  your High Score is #{profile.high_score}".bold
+        puts "\n\n"
+        puts "Welcome #{user_response}, your High Score is #{profile.high_score}".bold
         main_menu(profile)
     end
 end
